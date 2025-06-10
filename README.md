@@ -1,4 +1,4 @@
-# formulario-ordenes-trabajo
+# FORMULARIO ORDENES DE TRABAJO
 
 Formulario de Gestión de Órdenes de Trabajo para Comunicaciones
 
@@ -7,7 +7,8 @@ Herramienta desarrollada en Google Apps Script para automatizar la gestión de s
 # Objetivo General
 Desarrollar e implementar un formulario automatizado de gestión de órdenes de trabajo en Google Sheets, mediante Google Apps Script, para optimizar el proceso de solicitud, seguimiento y estadísticas de piezas gráficas y videográficas en la Dirección de Comunicaciones de la Alcaldía de Palmira, reduciendo tiempos manuales y mejorando la eficiencia en la asignación de tareas al equipo de diseño.
 
-Objetivos Específicos
+# Objetivos Específicos
+
 Automatizar el ingreso de datos:
 Crear un formulario integrado en Google Sheets que capture información vital (tipo de pieza, dependencia solicitante, plazos, especificaciones técnicas).
 
