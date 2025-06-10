@@ -1,7 +1,7 @@
 function agregarDatos1() {
   const libro = SpreadsheetApp.getActiveSpreadsheet();
   const hojaOrigen = libro.getSheetByName("Formulario1");
-  const hojaDestino = libro.getSheetByName("BASE");
+  const hojaDestino =.getSheetByName("BASE");
 
   // Lista de celdas obligatorias
   const celdasObligatorias = ["D5", "D7", "D8", "D9", "D10", "D11", "D16", "H11"];
@@ -81,7 +81,7 @@ function agregarDatos1() {
   ]];
 
   //PARA INSERTAR FILA Y INGRESAR DATOS AL INICIO DE LA FILA
-  hojaDestino.insertRowsBefore(3, 1);
+  hojaDestino(3, 1);
   const rangoDestino = hojaDestino.getRange(3, 1, 1, hojaDestino.getLastColumn());
   rangoDestino.setValues(producto);
 
