@@ -61,10 +61,13 @@ Google Forms (interfaz de ingreso).
 Gmail API (notificaciones).
 
 # Capturas de pantalla 
-Formulario:![image](https://github.com/user-attachments/assets/2b99a40c-7b3b-4b29-aa06-88122e6f8caa)
-Envio de imgail:![image](https://github.com/user-attachments/assets/3e0937e8-ae27-4e2e-a873-de039f870834)
+Formulario ingreso de informacion:![image](https://github.com/user-attachments/assets/2b99a40c-7b3b-4b29-aa06-88122e6f8caa)
+
+Envio de email:![image](https://github.com/user-attachments/assets/3e0937e8-ae27-4e2e-a873-de039f870834)
+
 Base de datos organizada:![image](https://github.com/user-attachments/assets/8b49ec21-6fbe-4b43-b670-969a1ea3deb0)
-Geston de estadisticas en tiempo real:![image](https://github.com/user-attachments/assets/879eebbe-ce13-435b-9cbd-4a51435f8521)
+
+Gestion de estadisticas en tiempo real:![image](https://github.com/user-attachments/assets/879eebbe-ce13-435b-9cbd-4a51435f8521)
 
 # Enlaces formulario:
 https://docs.google.com/spreadsheets/d/1KW3rWu5hU_bKWzjOVLT0rpvkTeCnLkntD8MmO8BKKTA/edit?usp=sharing
