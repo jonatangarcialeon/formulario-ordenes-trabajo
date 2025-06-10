@@ -1,0 +1,555 @@
+function agregarDatos1() {
+  const libro = SpreadsheetApp.getActiveSpreadsheet();
+  const hojaOrigen = libro.getSheetByName("Formulario1");
+  const hojaDestino = libro.getSheetByName("BASE");
+
+  // Lista de celdas obligatorias
+  const celdasObligatorias = ["D5", "D7", "D8", "D9", "D10", "D11", "D16", "H11"];
+
+  // Obtener los valores de esas celdas
+  var valoresFormulario = hojaOrigen.getRangeList(celdasObligatorias).getRanges().map(rango => rango.getValue());
+
+  // Verificar si alguna de las celdas obligatorias está vacía
+  if (valoresFormulario.some(valor => valor === "" || valor === null)) {
+    Browser.msgBox("Error", "Debe completar los campos necesarios de la ORDEN DE TRABAJO antes de continuar.", Browser.Buttons.OK);
+    return;
+  }
+
+  // Aquí puedes continuar con la lógica para agregar los datos a la hoja "BASE"
+  Browser.msgBox("Éxito", "Los datos han sido agregados correctamente.", Browser.Buttons.OK);
+
+
+
+  var ot = hojaOrigen.getRange(3, 4).getValue();
+  var fechayhoradesolicitud = hojaOrigen.getRange(5, 4).getValue();
+  var fechayhoralimitedeentrega = hojaOrigen.getRange(6, 4).getValue();
+  var dependenciaquelosolicita = hojaOrigen.getRange(7, 4).getValue();
+  var entregableoproductotipodepieza = hojaOrigen.getRange(8, 4).getValue();
+  var cantidad = hojaOrigen.getRange(9, 4).getValue();
+  var comunicadorenlacenombrecompleto = hojaOrigen.getRange(10, 4).getValue();
+  var nombreCoordinador = hojaOrigen.getRange(11, 4).getValue();
+  var disenadoracargoderealizarlapieza = hojaOrigen.getRange(13, 4).getValue();
+  var canal = hojaOrigen.getRange(14, 4).getValue();
+  var temaocontenido = hojaOrigen.getRange(16, 4).getValue();
+  var nivelalcance = hojaOrigen.getRange(17, 4).getValue();
+  var edad = hojaOrigen.getRange(18, 4).getValue();
+  var estrato = hojaOrigen.getRange(19, 4).getValue();
+  var ubicaciongeografica = hojaOrigen.getRange(20, 4).getValue();
+  var nombredelacampanaotema = hojaOrigen.getRange(5, 8).getValue();
+  var solicitadopornombreycargo = hojaOrigen.getRange(6, 8).getValue();
+  var publicoobjetivo = hojaOrigen.getRange(7, 8).getValue();
+  var creditosylogos = hojaOrigen.getRange(8, 8).getValue();
+  var tipodemedio = hojaOrigen.getRange(9, 8).getValue();
+  var comunicacion = hojaOrigen.getRange(10, 8).getValue();
+  var estado = hojaOrigen.getRange(11, 8).getValue();
+  var formulaestado = hojaOrigen.getRange(12, 8).getValue();
+  var evidenciadematerialenbruto = hojaOrigen.getRange(13, 8).getValue();
+  var paginawedalcaldia = hojaOrigen.getRange(16, 8).getValue();
+  var facebookalcaldia = hojaOrigen.getRange(17, 8).getValue();
+  var twiteralcaldia = hojaOrigen.getRange(18, 8).getValue();
+  var instagramalcaldia = hojaOrigen.getRange(19, 8).getValue();
+  var telegramalcaldia = hojaOrigen.getRange(20, 8).getValue();
+  var tiktokalcaldia = hojaOrigen.getRange(21, 8).getValue();
+  var facebookdeladependencia = hojaOrigen.getRange(6, 12).getValue();
+  var twitterdeladependencia = hojaOrigen.getRange(7, 12).getValue();
+  var instagramdependencia = hojaOrigen.getRange(8, 12).getValue();
+  var pantallazocorreo = hojaOrigen.getRange(9, 12).getValue();
+  var pantallazoofotodelpapeltapizoTV = hojaOrigen.getRange(10, 12).getValue();
+  var fotoimpreso = hojaOrigen.getRange(11, 12).getValue();
+  var enlacedepublicacionenmedioexternos = hojaOrigen.getRange(13, 12).getValue();
+  var formularedessociales = hojaOrigen.getRange(16, 15).getValue();
+  var formulaDRIVE = hojaOrigen.getRange(17, 15).getValue();
+  var formulanotasparabolerines = hojaOrigen.getRange(18, 15).getValue();
+  var formulaCorreo = hojaOrigen.getRange(19, 15).getValue();
+  var emailEnviado = hojaOrigen.getRange(20, 15).getValue();
+  var fechaMensaje = hojaOrigen.getRange(21, 15).getValue();
+  var formulacorreodisenadores = hojaOrigen.getRange(22, 15).getValue();
+  var imailenviadodisenadores = hojaOrigen.getRange(23, 15).getValue();
+  var fechaenviodisenadores = hojaOrigen.getRange(24, 15).getValue();
+  var correoenviadoperiodistas = hojaOrigen.getRange(25, 15).getValue();
+
+  // Obtener los vínculos de las celdas D16, H5, H6, H7, H8
+  var temaocontenidoRichText = hojaOrigen.getRange("D16").getRichTextValue();
+  var nombredelacampanaotemaRichText = hojaOrigen.getRange("H5").getRichTextValue();
+  var solicitadopornombreycargoRichText = hojaOrigen.getRange("H6").getRichTextValue();
+  var publicoobjetivoRichText = hojaOrigen.getRange("H7").getRichTextValue();
+  var creditosylogosRichText = hojaOrigen.getRange("H8").getRichTextValue();
+
+  //ARREGLO
+  var producto = [[
+    ot, fechayhoradesolicitud, fechayhoralimitedeentrega, dependenciaquelosolicita, entregableoproductotipodepieza, cantidad, comunicadorenlacenombrecompleto, nombreCoordinador, disenadoracargoderealizarlapieza, canal, temaocontenido, nivelalcance, edad, estrato, ubicaciongeografica, nombredelacampanaotema, solicitadopornombreycargo, publicoobjetivo, creditosylogos, tipodemedio, comunicacion, estado, formulaestado, evidenciadematerialenbruto, paginawedalcaldia, facebookalcaldia, twiteralcaldia, instagramalcaldia, telegramalcaldia, tiktokalcaldia, facebookdeladependencia, twitterdeladependencia, instagramdependencia, pantallazocorreo, pantallazoofotodelpapeltapizoTV, fotoimpreso, enlacedepublicacionenmedioexternos, formularedessociales, formulaDRIVE, formulanotasparabolerines, formulaCorreo, emailEnviado, fechaMensaje, formulacorreodisenadores, imailenviadodisenadores, fechaenviodisenadores, correoenviadoperiodistas
+  ]];
+
+  //PARA INSERTAR FILA Y INGRESAR DATOS AL INICIO DE LA FILA
+  hojaDestino.insertRowsBefore(3, 1);
+  const rangoDestino = hojaDestino.getRange(3, 1, 1, hojaDestino.getLastColumn());
+  rangoDestino.setValues(producto);
+
+  // Guardar los vínculos en la hoja BASE (solo si existen)
+  if (temaocontenidoRichText && temaocontenidoRichText.getLinkUrl()) {
+    hojaDestino.getRange(3, 11).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(temaocontenido).setLinkUrl(temaocontenidoRichText.getLinkUrl()).build());
+  } else {
+    hojaDestino.getRange(3, 11).setValue(temaocontenido); // Guardar como texto normal si no hay hipervínculo
+  }
+
+  if (nombredelacampanaotemaRichText && nombredelacampanaotemaRichText.getLinkUrl()) {
+    hojaDestino.getRange(3, 16).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(nombredelacampanaotema).setLinkUrl(nombredelacampanaotemaRichText.getLinkUrl()).build());
+  } else {
+    hojaDestino.getRange(3, 16).setValue(nombredelacampanaotema); // Guardar como texto normal si no hay hipervínculo
+  }
+
+  if (solicitadopornombreycargoRichText && solicitadopornombreycargoRichText.getLinkUrl()) {
+    hojaDestino.getRange(3, 17).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(solicitadopornombreycargo).setLinkUrl(solicitadopornombreycargoRichText.getLinkUrl()).build());
+  } else {
+    hojaDestino.getRange(3, 17).setValue(solicitadopornombreycargo); // Guardar como texto normal si no hay hipervínculo
+  }
+
+  if (publicoobjetivoRichText && publicoobjetivoRichText.getLinkUrl()) {
+    hojaDestino.getRange(3, 18).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(publicoobjetivo).setLinkUrl(publicoobjetivoRichText.getLinkUrl()).build());
+  } else {
+    hojaDestino.getRange(3, 18).setValue(publicoobjetivo); // Guardar como texto normal si no hay hipervínculo
+  }
+
+  if (creditosylogosRichText && creditosylogosRichText.getLinkUrl()) {
+    hojaDestino.getRange(3, 19).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(creditosylogos).setLinkUrl(creditosylogosRichText.getLinkUrl()).build());
+  } else {
+    hojaDestino.getRange(3, 19).setValue(creditosylogos); // Guardar como texto normal si no hay hipervínculo
+  }
+
+  // PARA LIMPIAR CELDAS DEL FORMULARIO 
+  hojaOrigen.getRange(3, 4).clearContent();
+  hojaOrigen.getRange(5, 4).clearContent();
+  hojaOrigen.getRange(6, 4).clearContent();
+  hojaOrigen.getRange(7, 4).clearContent();
+  hojaOrigen.getRange(8, 4).clearContent();
+  hojaOrigen.getRange(9, 4).clearContent();
+  hojaOrigen.getRange(10, 4).clearContent();
+  hojaOrigen.getRange(11, 4).clearContent();
+  hojaOrigen.getRange(13, 4).clearContent();
+  hojaOrigen.getRange(14, 4).clearContent();
+  hojaOrigen.getRange(16, 4).clearContent();
+  hojaOrigen.getRange(17, 4).clearContent();
+  hojaOrigen.getRange(18, 4).clearContent();
+  hojaOrigen.getRange(19, 4).clearContent();
+  hojaOrigen.getRange(20, 4).clearContent();
+  hojaOrigen.getRange(5, 8).clearContent();
+  hojaOrigen.getRange(6, 8).clearContent();
+  hojaOrigen.getRange(7, 8).clearContent();
+  hojaOrigen.getRange(8, 8).clearContent();
+  hojaOrigen.getRange(9, 8).clearContent();
+  hojaOrigen.getRange(10, 8).clearContent();
+  hojaOrigen.getRange(11, 8).clearContent();
+  hojaOrigen.getRange(12, 8).clearContent(); //formula estado
+  hojaOrigen.getRange(13, 8).clearContent();
+  hojaOrigen.getRange(16, 8).clearContent();
+  hojaOrigen.getRange(17, 8).clearContent();
+  hojaOrigen.getRange(18, 8).clearContent();
+  hojaOrigen.getRange(19, 8).clearContent();
+  hojaOrigen.getRange(20, 8).clearContent();
+  hojaOrigen.getRange(21, 8).clearContent();
+  hojaOrigen.getRange(6, 12).clearContent();
+  hojaOrigen.getRange(7, 12).clearContent();
+  hojaOrigen.getRange(8, 12).clearContent();
+  hojaOrigen.getRange(9, 12).clearContent();
+  hojaOrigen.getRange(10, 12).clearContent();
+  hojaOrigen.getRange(11, 12).clearContent();
+  hojaOrigen.getRange(13, 12).clearContent();
+  hojaOrigen.getRange(16, 15).clearContent(); //formula redes sociales
+  hojaOrigen.getRange(17, 15).clearContent(); //formula drive
+  hojaOrigen.getRange(18, 15).clearContent(); //formula NOTA PARA BOLETINES
+  hojaOrigen.getRange(19, 15).clearContent(); //formula CORREO
+  hojaOrigen.getRange(20, 15).clearContent(); //Email enviado
+  hojaOrigen.getRange(21, 15).clearContent(); //Fecha mensaje 
+  hojaOrigen.getRange(22, 15).clearContent(); //Formula correo diseñadores
+  hojaOrigen.getRange(23, 15).clearContent(); //mailenviadodisenadores
+  hojaOrigen.getRange(24, 15).clearContent(); //fecha envio diseñadores
+  hojaOrigen.getRange(25, 15).clearContent(); //correo enviado periodista
+  hojaOrigen.getRange(16, 11).clearContent(); // ot
+
+
+// Obtener el formato de la celda D12
+  var formatoD12 = hojaOrigen.getRange("D12").getRichTextValue();
+  // Aplicar el formato a las celdas D16, H5, H6, H7, H8
+  hojaOrigen.getRange("D16").setRichTextValue(formatoD12);
+  hojaOrigen.getRange("H5").setRichTextValue(formatoD12);
+  hojaOrigen.getRange("H6").setRichTextValue(formatoD12);
+  hojaOrigen.getRange("H7").setRichTextValue(formatoD12);
+  hojaOrigen.getRange("H8").setRichTextValue(formatoD12);
+
+
+  ///CREADOR JONATAN GARCIA LEON DIRECCION DE COMUNICACIONES
+  //PARA INGRESAR FORMULAS EN LAS CELDAS
+  // Aplicar varias fórmulas a diferentes celdas o rangos
+  const lastRow = hojaDestino.getLastRow();
+  if (lastRow > 1) { // Asegurarse de que hay más de una fila
+    const formulas = [
+      ///{ column: 3, formula: hojaDestino.getRange("C2").getFormulaR1C1() },
+      { column: 23, formula: hojaDestino.getRange("W2").getFormulaR1C1() }, // FORMULA ESTADO
+      { column: 38, formula: hojaDestino.getRange("AL2").getFormulaR1C1() }, // FORMULA REDES SOCIALES
+      { column: 39, formula: hojaDestino.getRange("AM2").getFormulaR1C1() }, // FORMULA DRIVE
+      { column: 40, formula: hojaDestino.getRange("AN2").getFormulaR1C1() }, // FORMULA BOLETINES
+      { column: 41, formula: hojaDestino.getRange("AO2").getFormulaR1C1() }, // FORMULA CORREO PERIDISTA
+      { column: 44, formula: hojaDestino.getRange("AR2").getFormulaR1C1() }, // FORMULA CORREO DISEÑADPRES
+    ];
+
+    formulas.forEach(item => {
+      const range = hojaDestino.getRange(3, item.column, lastRow - 2);
+      range.setFormulaR1C1(item.formula);
+    });
+  }
+
+  ///CREADOR JONATAN GARCIA LEON DIRECCION DE COMUNICACIONES
+  //COSECUTIVO JONATAN GARCIA LEON
+  const anterior = hojaDestino.getRange(4, 1).getValue();
+  const consec = anterior + 1;
+  hojaDestino.getRange(3, 1).setValue(consec);
+}
+
+function onedit() {
+  arrastrarFormulaAutomaticamente();
+}
+
+
+// LIMPIAR CELDAS
+function limpiar1() {
+  var hojaActiva = SpreadsheetApp.getActiveSpreadsheet();
+  var formulario = hojaActiva.getSheetByName("Formulario1");
+
+  var celdasALimpiar = [
+    "D3", "D5", "D6", "D7", "D8", "D9", "D10", "D11", "D13", "D14", "D16", "D17", "D18", "D19", "D20",
+    "H5", "H6", "H7", "H8", "H9", "H10", "H11", "H12", "H13", "H16", "H17", "H18", "H19", "H20", "H21",
+    "L6", "L7", "L8", "L9", "L10", "L11", "L13",
+    "O16", "O17", "O18", "O19", "O20", "O21", "O22", "O23", "O24", "O25", "K16"
+  ];
+
+  // Limpiar el contenido de las celdas
+  for (var i = 0; i < celdasALimpiar.length; i++) {
+    var celda = formulario.getRange(celdasALimpiar[i]);
+    celda.clearContent(); // Limpia el contenido (incluyendo hipervínculos)
+    celda.setValue("");   // Asegura que la celda esté vacía
+  }
+
+  // Copiar el formato de la celda D12 a las celdas D16, H5, H6, H7 y H8
+  var celdaFormato = formulario.getRange("D12"); // Celda de referencia para el formato
+  var celdasConHipervinculos = ["D16", "H5", "H6", "H7", "H8"];
+
+  for (var j = 0; j < celdasConHipervinculos.length; j++) {
+    var celda = formulario.getRange(celdasConHipervinculos[j]);
+    celdaFormato.copyFormatToRange(
+      formulario,                     // Hoja de destino
+      celda.getColumn(),              // Columna de inicio
+      celda.getColumn(),              // Columna de fin
+      celda.getRow(),                 // Fila de inicio
+      celda.getRow()                  // Fila de fin
+    );
+  }
+}
+
+
+// BUSCAR
+var NUM_COLUMNA_BUSQUEDA = 0;
+
+
+function Buscar1() {
+  var hojaActiva = SpreadsheetApp.getActiveSpreadsheet();
+  var formulario = hojaActiva.getSheetByName("Formulario1");
+  var datos = hojaActiva.getSheetByName("BASE");
+
+  var valor = formulario.getRange("K16").getValue();
+  var valores = datos.getDataRange().getValues();
+
+  var encontrado = false;
+
+  for (var i = 0; i < valores.length; i++) {
+    var fila = valores[i];
+    if (fila[NUM_COLUMNA_BUSQUEDA] == valor) {
+      encontrado = true;
+
+      // Restaurar los valores normales
+      formulario.getRange("D3").setValue(fila[0]); //OT
+      formulario.getRange("D5").setValue(fila[1]); //Fecha y hora de solicitud
+      formulario.getRange("D6").setValue(fila[2]); //Fecha y hora limite de entrega
+      formulario.getRange("D7").setValue(fila[3]); //Dependencia que lo solicita
+      formulario.getRange("D8").setValue(fila[4]); //Entregable - Producto
+      formulario.getRange("D9").setValue(fila[5]); //Cantidad
+      formulario.getRange("D10").setValue(fila[6]); //Comunicador / Enlace
+      formulario.getRange("D11").setValue(fila[7]); //Nombre Coordinador
+      formulario.getRange("D13").setValue(fila[8]); //DISEÑADOR a cargo de realiza
+      formulario.getRange("D14").setValue(fila[9]); //Canal
+      formulario.getRange("D16").setValue(fila[10]); //TEMA CONTENIDO
+      formulario.getRange("D17").setValue(fila[11]); //NIVEL ALCALCE
+      formulario.getRange("D18").setValue(fila[12]); //PERFIL DEMOGRAFICO EDAD
+      formulario.getRange("D19").setValue(fila[13]); //PERFIL DEMOGRAFICO ESTRATO
+      formulario.getRange("D20").setValue(fila[14]); //UBICACION GEOGRAFICA
+      formulario.getRange("H5").setValue(fila[15]); //Nombre de la campaña o tema
+      formulario.getRange("H6").setValue(fila[16]); //Solicitado por (Nombre y Cargo)
+      formulario.getRange("H7").setValue(fila[17]); //Publico objetivo que se require
+      formulario.getRange("H8").setValue(fila[18]); //Creditos y logos a tener en cuenta
+      formulario.getRange("H9").setValue(fila[19]); //Tipo de medio
+      formulario.getRange("H10").setValue(fila[20]); //Comunicacion
+      formulario.getRange("H11").setValue(fila[21]); //Estado
+      formulario.getRange("H12").setValue(fila[22]); //FORTMULA ESTADO
+      formulario.getRange("H13").setValue(fila[23]); //Evidencia del material en bruto
+      formulario.getRange("H16").setValue(fila[24]); //paginawedalcaldia
+      formulario.getRange("H17").setValue(fila[25]); //Facebook  Alcaldía
+      formulario.getRange("H18").setValue(fila[26]); //Twitter  Alcaldía
+      formulario.getRange("H19").setValue(fila[27]); //Instragram Alcaldía
+      formulario.getRange("H20").setValue(fila[28]); //Telegram Alcaldia
+      formulario.getRange("H21").setValue(fila[29]); //Tik Tok
+      formulario.getRange("L6").setValue(fila[30]); //Facebook de la dependencia	
+      formulario.getRange("L7").setValue(fila[31]); //Twitter de la dependencia	
+      formulario.getRange("L8").setValue(fila[32]); //Instagram dependencia	
+      formulario.getRange("L9").setValue(fila[33]); //Pantallazo correo	
+      formulario.getRange("L10").setValue(fila[34]); //Pantallazo o foto del papel tapiz o TV	
+      formulario.getRange("L11").setValue(fila[35]); //Foto impreso	
+      formulario.getRange("L13").setValue(fila[36]); //Enlace de publicación en medio de com
+      formulario.getRange("O16").setValue(fila[37]); //FORMULA Redes sociales 
+      formulario.getRange("O17").setValue(fila[38]); //FORMULA DRIVE
+      formulario.getRange("O18").setValue(fila[39]); //FORMULA NOTAS INTERNAS
+      formulario.getRange("O19").setValue(fila[40]); //FORMULA CORREO PERIODISTA
+      formulario.getRange("O20").setValue(fila[41]); //FORMULA IMAIL
+      formulario.getRange("O21").setValue(fila[42]); //FORMULA FECHA
+      formulario.getRange("O22").setValue(fila[43]); //FORMULA CORREO DISEÑADORES
+      formulario.getRange("O23").setValue(fila[44]); //EMAIL DISEÑADORES
+      formulario.getRange("O24").setValue(fila[45]); //FECHA ENVIO DISEÑADORES
+      formulario.getRange("O25").setValue(fila[46]); //CORREO ENVIADO PERIODISTA
+
+      // Restaurar los hipervínculos en las celdas D16, H5, H6, H7, H8 (solo si existen)
+      var temaocontenidoRichText = datos.getRange(i + 1, 11).getRichTextValue();
+      var nombredelacampanaotemaRichText = datos.getRange(i + 1, 16).getRichTextValue();
+      var solicitadopornombreycargoRichText = datos.getRange(i + 1, 17).getRichTextValue();
+      var publicoobjetivoRichText = datos.getRange(i + 1, 18).getRichTextValue();
+      var creditosylogosRichText = datos.getRange(i + 1, 19).getRichTextValue();
+
+      if (temaocontenidoRichText && temaocontenidoRichText.getLinkUrl()) {
+        formulario.getRange("D16").setRichTextValue(SpreadsheetApp.newRichTextValue().setText(fila[10]).setLinkUrl(temaocontenidoRichText.getLinkUrl()).build());
+      } else {
+        formulario.getRange("D16").setValue(fila[10]); // Restaurar como texto normal si no hay hipervínculo
+      }
+
+      if (nombredelacampanaotemaRichText && nombredelacampanaotemaRichText.getLinkUrl()) {
+        formulario.getRange("H5").setRichTextValue(SpreadsheetApp.newRichTextValue().setText(fila[15]).setLinkUrl(nombredelacampanaotemaRichText.getLinkUrl()).build());
+      } else {
+        formulario.getRange("H5").setValue(fila[15]); // Restaurar como texto normal si no hay hipervínculo
+      }
+
+      if (solicitadopornombreycargoRichText && solicitadopornombreycargoRichText.getLinkUrl()) {
+        formulario.getRange("H6").setRichTextValue(SpreadsheetApp.newRichTextValue().setText(fila[16]).setLinkUrl(solicitadopornombreycargoRichText.getLinkUrl()).build());
+      } else {
+        formulario.getRange("H6").setValue(fila[16]); // Restaurar como texto normal si no hay hipervínculo
+      }
+
+      if (publicoobjetivoRichText && publicoobjetivoRichText.getLinkUrl()) {
+        formulario.getRange("H7").setRichTextValue(SpreadsheetApp.newRichTextValue().setText(fila[17]).setLinkUrl(publicoobjetivoRichText.getLinkUrl()).build());
+      } else {
+        formulario.getRange("H7").setValue(fila[17]); // Restaurar como texto normal si no hay hipervínculo
+      }
+
+      if (creditosylogosRichText && creditosylogosRichText.getLinkUrl()) {
+        formulario.getRange("H8").setRichTextValue(SpreadsheetApp.newRichTextValue().setText(fila[18]).setLinkUrl(creditosylogosRichText.getLinkUrl()).build());
+      } else {
+        formulario.getRange("H8").setValue(fila[18]); // Restaurar como texto normal si no hay hipervínculo
+      }
+
+      break;
+    }
+  }
+  
+  if (!encontrado) {
+    SpreadsheetApp.getUi().alert('Valor no encontrado');
+  }
+}
+
+
+// Función para actualizar los datos
+function Actualizar1() {
+  var hojaActiva = SpreadsheetApp.getActiveSpreadsheet();
+  var formulario = hojaActiva.getSheetByName("Formulario1");
+  var datos = hojaActiva.getSheetByName("BASE");
+
+  var valor = formulario.getRange("K16").getValue();
+  var valores = datos.getDataRange().getValues();
+  var actualizado = false;
+
+  // Verificar si todas las celdas del formulario están vacías
+  var celdasFormulario = [
+    "D3", "D5", "D6", "D7", "D8", "D9", "D10","D11", "D13", "D14", "D16", "D17", "D18", "D19", "D20",
+    "H5", "H6", "H7", "H8", "H9", "H10", "H11","H12", "H13", "H16", "H17", "H18", "H19", "H20", "H21",
+    "L6", "L7", "L8", "L9", "L10", "L11", "L13","O16", "O17", "O18", "O19", "O20", "O21", "O22", "O23", "O24", "O25"
+  ];
+
+  var formularioVacio = celdasFormulario.every(celda => formulario.getRange(celda).getValue() === "");
+
+  if (formularioVacio) {
+    SpreadsheetApp.getUi().alert("El formulario está vacío. Por favor, busque su OT, Modifique y Actualice.");
+    return;
+  }
+
+  for (var i = 0; i < valores.length; i++) {
+    var fila = valores[i];
+    if (fila[NUM_COLUMNA_BUSQUEDA] == valor) {
+      var INT_R = i + 1;
+
+      var valores1 = [[
+        formulario.getRange("D3").getValue(),
+        formulario.getRange("D5").getValue(),
+        formulario.getRange("D6").getValue(),
+        formulario.getRange("D7").getValue(),
+        formulario.getRange("D8").getValue(),
+        formulario.getRange("D9").getValue(),
+        formulario.getRange("D10").getValue(),
+        formulario.getRange("D11").getValue(),
+        formulario.getRange("D13").getValue(),
+        formulario.getRange("D14").getValue(),
+        formulario.getRange("D16").getValue(),
+        formulario.getRange("D17").getValue(),
+        formulario.getRange("D18").getValue(),
+        formulario.getRange("D19").getValue(),
+        formulario.getRange("D20").getValue(),
+        formulario.getRange("H5").getValue(),
+        formulario.getRange("H6").getValue(),
+        formulario.getRange("H7").getValue(),
+        formulario.getRange("H8").getValue(),
+        formulario.getRange("H9").getValue(),
+        formulario.getRange("H10").getValue(),
+        formulario.getRange("H11").getValue(),
+        formulario.getRange("H12").getValue(),
+        formulario.getRange("H13").getValue(),
+        formulario.getRange("H16").getValue(),
+        formulario.getRange("H17").getValue(),
+        formulario.getRange("H18").getValue(),
+        formulario.getRange("H19").getValue(),
+        formulario.getRange("H20").getValue(),
+        formulario.getRange("H21").getValue(),
+        formulario.getRange("L6").getValue(),
+        formulario.getRange("L7").getValue(),
+        formulario.getRange("L8").getValue(),
+        formulario.getRange("L9").getValue(),
+        formulario.getRange("L10").getValue(),
+        formulario.getRange("L11").getValue(),
+        formulario.getRange("L13").getValue(),
+        formulario.getRange("O16").getValue(),
+        formulario.getRange("O17").getValue(),
+        formulario.getRange("O18").getValue(),
+        formulario.getRange("O19").getValue(),
+        formulario.getRange("O20").getValue(),
+        formulario.getRange("O21").getValue(),
+        formulario.getRange("O22").getValue(),
+        formulario.getRange("O23").getValue(),
+        formulario.getRange("O24").getValue(),
+        formulario.getRange("O25").getValue()
+      ]];
+
+      datos.getRange(INT_R, 1, 1, 47).setValues(valores1);
+      actualizado = true;
+
+      // Obtener los valores y vínculos de las celdas D16, H5, H6, H7, H8
+      var temaocontenidoRichText = formulario.getRange("D16").getRichTextValue();
+      var nombredelacampanaotemaRichText = formulario.getRange("H5").getRichTextValue();
+      var solicitadopornombreycargoRichText = formulario.getRange("H6").getRichTextValue();
+      var publicoobjetivoRichText = formulario.getRange("H7").getRichTextValue();
+      var creditosylogosRichText = formulario.getRange("H8").getRichTextValue();
+
+      // Actualizar las celdas en la hoja BASE
+      if (temaocontenidoRichText && temaocontenidoRichText.getLinkUrl()) {
+        datos.getRange(INT_R, 11).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(formulario.getRange("D16").getValue()).setLinkUrl(temaocontenidoRichText.getLinkUrl()).build());
+      } else {
+        datos.getRange(INT_R, 11).setValue(formulario.getRange("D16").getValue()); // Guardar como texto normal si no hay hipervínculo
+      }
+
+      if (nombredelacampanaotemaRichText && nombredelacampanaotemaRichText.getLinkUrl()) {
+        datos.getRange(INT_R, 16).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(formulario.getRange("H5").getValue()).setLinkUrl(nombredelacampanaotemaRichText.getLinkUrl()).build());
+      } else {
+        datos.getRange(INT_R, 16).setValue(formulario.getRange("H5").getValue()); // Guardar como texto normal si no hay hipervínculo
+      }
+
+      if (solicitadopornombreycargoRichText && solicitadopornombreycargoRichText.getLinkUrl()) {
+        datos.getRange(INT_R, 17).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(formulario.getRange("H6").getValue()).setLinkUrl(solicitadopornombreycargoRichText.getLinkUrl()).build());
+      } else {
+        datos.getRange(INT_R, 17).setValue(formulario.getRange("H6").getValue()); // Guardar como texto normal si no hay hipervínculo
+      }
+
+      if (publicoobjetivoRichText && publicoobjetivoRichText.getLinkUrl()) {
+        datos.getRange(INT_R, 18).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(formulario.getRange("H7").getValue()).setLinkUrl(publicoobjetivoRichText.getLinkUrl()).build());
+      } else {
+        datos.getRange(INT_R, 18).setValue(formulario.getRange("H7").getValue()); // Guardar como texto normal si no hay hipervínculo
+      }
+
+      if (creditosylogosRichText && creditosylogosRichText.getLinkUrl()) {
+        datos.getRange(INT_R, 19).setRichTextValue(SpreadsheetApp.newRichTextValue().setText(formulario.getRange("H8").getValue()).setLinkUrl(creditosylogosRichText.getLinkUrl()).build());
+      } else {
+        datos.getRange(INT_R, 19).setValue(formulario.getRange("H8").getValue()); // Guardar como texto normal si no hay hipervínculo
+    
+      }
+
+      // Copiar las fórmulas de las celdas específicas y aplicarlas a la fila actualizada
+      var formulas = {
+      ///C: datos.getRange("C2").getFormula(),//FORMULA FECHA FINAL DE SOLICITUD
+        W: datos.getRange("W2").getFormula(),//FORMULA ESTADO
+        AL: datos.getRange("AL2").getFormula(),//FORMULA REDES SOCIALES
+        AM: datos.getRange("AM2").getFormula(),//FORMULA DRIVE
+        AN: datos.getRange("AN2").getFormula(),//FORMULA BOLETINES
+        AO: datos.getRange("AO2").getFormula(),//FORMULA CORREO PERIODISTA
+        AR: datos.getRange("AR2").getFormula(),//FORMULA CORREO DISEÑASORES
+             
+                
+                // Agrega más fórmulas según sea necesario
+      };
+
+      // Aplicar las fórmulas a la fila actualizada
+      ///datos.getRange(INT_R, 3).setFormula(formulas.C); // FORMULA FECHA FINAL DE SOLICITUD
+      datos.getRange(INT_R, 23).setFormula(formulas.W); // FORMULA ESTADO
+      datos.getRange(INT_R, 38).setFormula(formulas.AL); // FORMULA REDES SOCIALES
+      datos.getRange(INT_R, 39).setFormula(formulas.AM); // FORMULA DRIVE
+      datos.getRange(INT_R, 40).setFormula(formulas.AN); // FORMULA BOLETINES
+      datos.getRange(INT_R, 41).setFormula(formulas.AO); // FORMULA CORREO PERIODISTA
+      datos.getRange(INT_R, 44).setFormula(formulas.AR); // FORMULA CORREO DISEÑADORES
+
+      SpreadsheetApp.getUi().alert('Datos actualizados');
+      limpiar1();
+      break;
+    }
+  }
+
+  if (!actualizado) {
+    SpreadsheetApp.getUi().alert('Valor no encontrado o no actualizado');
+  }
+
+  // Aplicar las fórmulas a todas las filas de las columnas respectivas, excepto la primera (cabecera)
+  ///datos.getRange(2, 3, datos.getLastRow() - 1).setFormula(formulas.C); // Columna FECHA FINAL DE SOLICITUD
+  datos.getRange(2, 23, datos.getLastRow() - 1).setFormula(formulas.W); // Columna formula estado
+  datos.getRange(2, 38, datos.getLastRow() - 1).setFormula(formulas.AL); // Columna formula redes sociales
+  datos.getRange(2, 39, datos.getLastRow() - 1).setFormula(formulas.AM); // Columna formula drive
+  datos.getRange(2, 40, datos.getLastRow() - 1).setFormula(formulas.AN); // Columna formula 
+  datos.getRange(2, 41, datos.getLastRow() - 1).setFormula(formulas.AO); // Columna formula Correo PERIDISTA
+  datos.getRange(2, 44, datos.getLastRow() - 1).setFormula(formulas.AR); // Columna FORMULA CORREO DISEÑADORES
+}
+
+
+
+// Eliminar ///CREADOR JONATAN GARCIA LEON DIRECCION DE COMUNICACIONES
+function Eliminar1() {
+  var hojaActiva = SpreadsheetApp.getActiveSpreadsheet();
+  var formulario = hojaActiva.getSheetByName("Formulario1");
+  var datos = hojaActiva.getSheetByName("BASE");
+
+  var interface = SpreadsheetApp.getUi();
+  var respuesta = interface.alert('¿Está seguro de borrar?', interface.ButtonSet.YES_NO);
+
+  // Proceso si el usuario responde
+  if (respuesta == interface.Button.YES) {
+
+    var valor = formulario.getRange("K16").getValue();
+    var valores = hojaActiva.getSheetByName("BASE").getDataRange().getValues();
+    for (var i = 0; i < valores.length; i++) {
+      var fila = valores[i];
+      if (fila[NUM_COLUMNA_BUSQUEDA] == valor) {
+        var INT_R = i + 1
+
+        datos.deleteRow(INT_R);
+        limpiar1();
+        break;
+      }
+    }
+  }
+}
