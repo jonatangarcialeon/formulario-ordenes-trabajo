@@ -26,13 +26,9 @@ Minimizar la intervención manual en la gestión de órdenes, asegurando precisi
 
 # Funcionalidades clave:
 Formulario inteligente: Captura información vital de las dependencias (requerimientos, plazos, especificaciones técnicas).
-
-# Panel de control:
-Botón "Ingresar" para enviar datos a una base de datos en Google Sheets.
+Panel de control:Botón "Ingresar" para enviar datos a una base de datos en Google Sheets.
 Generación automática de informes estadísticos (tipos de piezas, dependencias solicitantes, tiempos de entrega).
-Notificaciones automáticas:
-Envía correos electrónicos (Gmail) al equipo de diseño con los detalles de cada solicitud.
-Integración con Google Workspace:
+Notificaciones automáticas:Envía correos electrónicos (Gmail) al equipo de diseño con los detalles de cada solicitud.Integración con Google Workspace:
 Sincronización con Google Sheets (tablas de seguimiento) y Google Drive (almacenamiento de piezas).
 
 # Cómo usarlo
